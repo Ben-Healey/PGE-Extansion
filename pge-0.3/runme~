@@ -1,0 +1,16 @@
+#!/bin/bash
+
+VERSION=0.3
+PGE=pge-${VERSION}
+
+cd $HOME/Sandpit/${PGE}
+automake  --add-missing
+autoreconf
+
+cd $HOME/Sandpit
+rm -rf build-pge
+mkdir build-pge
+
+cd build-pge
+../${PGE}/configure
+make all

@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+
+import pgeif
+
+print pgeif.get_ebuf()

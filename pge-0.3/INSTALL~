@@ -1,0 +1,11 @@
+How to Build PGE
+================
+
+On a debian based GNU/Linux system you can:
+
+$ sudo apt-get install gm2 python-dev swig maxima g++ python-pygame
+$ tar zxf pge-version.tar.gz
+$ mkdir pge-build
+$ cd pge-build
+$ ../pge/configure
+$ make
