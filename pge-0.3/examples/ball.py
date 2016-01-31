@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-import pge, sys, pygame
+import pge, sys, pygame, easygui
+
+
 
 print "Start Game"
 pge.batch ()  # this works
@@ -38,6 +40,7 @@ def callMe (p):
     print "box has collided!"
 
 def main ():
+    easygui.msgbox("This is a message!", title="simple gui")
     c = placeBall (0.55, 0.8, 0.02).mass (1).on_collision (callMe)
     l = placeBox ([0.3, 0.3], [0.3, 0.5], [0.5, 0.5], [0.5, 0.3])
     #Own code 
