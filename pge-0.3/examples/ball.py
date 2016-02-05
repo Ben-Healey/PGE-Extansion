@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import pge, sys, pygame, easygui
-
+from Tkinter import *
 
 
 print "Start Game"
@@ -39,16 +39,27 @@ def placeBox (p0, p1, p2, p3):
 def callMe (p):
     print "box has collided!"
 
+root = Tk()
+def quit():
+    print "Quit"
+    root.quit()
+    
 def main ():
-    easygui.msgbox("Welcome to the PGE Sandbox enviorment", title="PGE")
-    val = easygui.enterbox(msg="How Many Boxes would you like to add to the sandbox up to 6", title="PGE Sandbox")
-    if val == 1:
-        c = placeBall (0.55, 0.8, 0.02).mass (1).on_collision (callMe)
-        l = placeBox ([0.3, 0.3], [0.3, 0.5], [0.5, 0.5], [0.5, 0.3])
-    else:
+
+    #root = Tk()
+
+    var = StringVar()
+    label = Button( root, textvariable=var, relief=FLAT,command = quit)
+    var.set("Welcome to the PGE Sandpit!")
+    #root.geometry("200x200")
+    label.pack()
+
+    root.mainloop()
+    c = placeBall (0.55, 0.8, 0.02).mass (1).on_collision (callMe)
+    l = placeBox ([0.3, 0.3], [0.3, 0.5], [0.5, 0.5], [0.5, 0.3])
         #Own code 
-        l2 = placeBox ([0.55, 0.55], [0.0, 0.0], [0.80, 0.80], [0.8, 0.2])
-        l3 = placeBox ([0.15, 0.15], [0.25, 0.25], [0.03, 0.03], [0.02, 0.8])
+    l2 = placeBox ([0.55, 0.55], [0.0, 0.0], [0.80, 0.80], [0.8, 0.2])
+    l3 = placeBox ([0.15, 0.15], [0.25, 0.25], [0.03, 0.03], [0.02, 0.8])
     
     b1, b2, b3, b4 = placeBoarders (boarder, wood_light)
     print "before run"
@@ -56,7 +67,7 @@ def main ():
     pge.dump_world ()
     pge.run (5.0)
     pge.finish ()
-    print val
+    
 
 print "before main()"
 main ()
