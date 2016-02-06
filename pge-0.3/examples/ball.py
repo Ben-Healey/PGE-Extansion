@@ -39,21 +39,73 @@ def placeBox (p0, p1, p2, p3):
 def callMe (p):
     print "box has collided!"
 
-root = Tk()
-def quit():
-    print "Quit"
-    root.quit()
+
+    
+    
+    
+class wind1:
+    
+    def __init__(self, master):
+        self.master = master
+        self.frame = Frame(self.master)
+        self.button1 = Button(self.frame, text = 'Click to continue', width = 40, command = self.new_window)
+        self.lab = Label(self.frame, text= "Welcome to the PGE Sandbox")
+        self.lab.pack()
+        self.button1.pack()
+        self.frame.pack()
+        
+    def new_window(self):
+        self.newWindow = Toplevel(self.master)
+        self.app = Wind2(self.newWindow)
+        
+    
+class Wind2:
+    def __init__(self, master):
+        self.master = master
+        self.frame = Frame(self.master)
+        self.Label = Label (self.frame, text = "How many objects would you like to add to the sandbox", width = 50)
+        self.Label.pack()
+        self.EntryBox = Entry(self.frame)
+        self.EntryBox.pack(side = LEFT)
+        self.but = Button(self.frame, text = "Done",command = self.close_windows)
+        self.frame.pack()
+    def close_windows(self):
+        self.master.destroy()
+        
+    def getval(self):
+        self.EntryBox.get()
+
+        
+#def used to close window
+#def quit():
+ #   print "Quit"
+  #  root.quit()
+    
+#def test2():
+ #       val = test.get()
+    
+  #      try:
+   #         val = float(val)
+    #        print val
+     #   except ValueError:
+      #      print "Bad Input"
+        
+       # root.quit()
+        #Button(text="Test", command=test2).grid()
     
 def main ():
 
-    #root = Tk()
-
-    var = StringVar()
-    label = Button( root, textvariable=var, relief=FLAT,command = quit)
-    var.set("Welcome to the PGE Sandpit!")
+    root = Tk()
+    
+    #var = StringVar()
+    #var2 = StringVar()
+    #label = Button( root, textvariable=var, relief=FLAT,command = quit)
+    #var.set("Welcome to the PGE Sandpit! Click me to continue")
     #root.geometry("200x200")
-    label.pack()
-
+    #label.pack()
+    root.title("PGE-Sandbox")
+    print "About to run window"
+    app = wind1(root)
     root.mainloop()
     c = placeBall (0.55, 0.8, 0.02).mass (1).on_collision (callMe)
     l = placeBox ([0.3, 0.3], [0.3, 0.5], [0.5, 0.5], [0.5, 0.3])
