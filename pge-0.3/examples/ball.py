@@ -48,18 +48,26 @@ class wind1:
     def __init__(self, master):
         self.master = master
         self.frame = Frame(self.master)
-        self.button1 = Button(self.frame, text = 'Click to continue', width = 40, command = self.new_window)
+        self.button1 = Button(self.frame, text = 'Set Number of Objects', width = 40, command = self.new_window)
+        self.button2 = Button(self.frame, text = 'Set Placement of Ball', width=40 ,command = self.new_window)
+        self.button3 = Button(self.frame, text = 'Set Points for Each Object ',width = 40, command  = self.new_window) 
+        self.button4 = Button(self.frame, text = 'Set Simulation Time', width = 40, command = self.new_window)
+        self.button5 = Button(self.frame, text = 'Continue To Simulation', width = 40, command = self.new_window)
         self.lab = Label(self.frame, text= "Welcome to the PGE Sandbox")
         self.lab.pack()
         self.button1.pack()
+        self.button2.pack()
+        self.button3.pack()
+        self.button4.pack()
+        self.button5.pack()
         self.frame.pack()
         
     def new_window(self):
         self.newWindow = Toplevel(self.master)
-        self.app = Wind2(self.newWindow)
-        
+        self.app = Num_objects(self.newWindow)
+ 
     
-class Wind2:
+class Num_objects:
     def __init__(self, master):
         self.master = master
         self.frame = Frame(self.master)
@@ -68,14 +76,18 @@ class Wind2:
         self.EntryBox = Entry(self.frame)
         self.EntryBox.pack(side = LEFT)
         self.but = Button(self.frame, text = "Done",command = self.close_windows)
+        self.but.pack()
         self.frame.pack()
     def close_windows(self):
+        print self.EntryBox.get()
         self.master.destroy()
         
     def getval(self):
         self.EntryBox.get()
 
-        
+    
+
+
 #def used to close window
 #def quit():
  #   print "Quit"
@@ -95,7 +107,7 @@ class Wind2:
     
 def main ():
 
-    root = Tk()
+    master = Tk()
     
     #var = StringVar()
     #var2 = StringVar()
@@ -103,10 +115,10 @@ def main ():
     #var.set("Welcome to the PGE Sandpit! Click me to continue")
     #root.geometry("200x200")
     #label.pack()
-    root.title("PGE-Sandbox")
+    master.title("PGE-Sandbox")
     print "About to run window"
-    app = wind1(root)
-    root.mainloop()
+    app = wind1(master)
+    master.mainloop()
     c = placeBall (0.55, 0.8, 0.02).mass (1).on_collision (callMe)
     l = placeBox ([0.3, 0.3], [0.3, 0.5], [0.5, 0.5], [0.5, 0.3])
         #Own code 
