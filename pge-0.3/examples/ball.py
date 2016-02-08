@@ -48,11 +48,11 @@ class wind1:
     def __init__(self, master):
         self.master = master
         self.frame = Frame(self.master)
-        self.button1 = Button(self.frame, text = 'Set Number of Objects', width = 40, command = self.new_window)
-        self.button2 = Button(self.frame, text = 'Set Placement of Ball', width=40 ,command = self.new_window)
-        self.button3 = Button(self.frame, text = 'Set Points for Each Object ',width = 40, command  = self.new_window) 
-        self.button4 = Button(self.frame, text = 'Set Simulation Time', width = 40, command = self.new_window)
-        self.button5 = Button(self.frame, text = 'Continue To Simulation', width = 40, command = self.new_window)
+        self.button1 = Button(self.frame, text = 'Set Number of Objects', width = 40, command = self.Num_window)
+        self.button2 = Button(self.frame, text = 'Set Placement of Ball', width=40 ,command = self.Ball_windows)
+        self.button3 = Button(self.frame, text = 'Set Points for Each Object ',width = 40, command  = self.Obj_windows) 
+        self.button4 = Button(self.frame, text = 'Set Simulation Time', width = 40, command = self.time_windows)
+        self.button5 = Button(self.frame, text = 'Continue To Simulation', width = 40, command = self.kill_window)
         self.lab = Label(self.frame, text= "Welcome to the PGE Sandbox")
         self.lab.pack()
         self.button1.pack()
@@ -62,11 +62,25 @@ class wind1:
         self.button5.pack()
         self.frame.pack()
         
-    def new_window(self):
+    def Num_window(self):
         self.newWindow = Toplevel(self.master)
         self.app = Num_objects(self.newWindow)
- 
     
+    def Ball_windows(self):
+        self.newWindow = Toplevel(self.master)
+        self.app = Place_Ball(self.newWindow)
+    
+    def Obj_windows(self):
+        self.newWindow = Toplevel(self.master)
+        self.app = Obj_Points(self.newWindow)
+    
+    def time_windows(self):
+        self.newWindow = Toplevel(self.master)
+        self.app = settime(self.newWindow)
+    
+    def kill_window(self):
+        self.master.destroy()
+        
 class Num_objects:
     def __init__(self, master):
         self.master = master
@@ -76,45 +90,73 @@ class Num_objects:
         self.EntryBox = Entry(self.frame)
         self.EntryBox.pack(side = LEFT)
         self.but = Button(self.frame, text = "Done",command = self.close_windows)
-        self.but.pack()
+        self.but.pack(side = LEFT)
         self.frame.pack()
     def close_windows(self):
         print self.EntryBox.get()
         self.master.destroy()
         
     def getval(self):
-        self.EntryBox.get()
+      return self.EntryBox.get()
 
     
-
-
-#def used to close window
-#def quit():
- #   print "Quit"
-  #  root.quit()
-    
-#def test2():
- #       val = test.get()
-    
-  #      try:
-   #         val = float(val)
-    #        print val
-     #   except ValueError:
-      #      print "Bad Input"
+class Place_Ball:
+    def __init__(self,master):
+        self.master = master
+        self.frame = Frame(self.master)
+        self.label = Label(self.frame, text = "Please Enter the X, Y and R", width = 50)
+        self.label.pack()
+        self.label2 = Label(self.frame, text ="X: ")
+        self.Entry1 = Entry(self.frame) 
+        self.label2.pack(side = LEFT)
+        self.Entry1.pack(side = LEFT)
+        self.label3 = Label(self.frame, text = "Y: ")
+        self.Entry2 = Entry(self.frame)
+        self.label3.pack(side = LEFT)
+        self.Entry2.pack(side = LEFT)
+        self.label4 = Label(self.frame, text = "R: ")
+        self.Entry3 = Entry(self.frame)
+        self.label4.pack(side = LEFT)
+        self.Entry3.pack(side = LEFT)
+        self.but = Button(self.frame, text = "Done", command = self.close_windows1)
+        self.but.pack(side =LEFT)
+        self.frame.pack()
         
-       # root.quit()
-        #Button(text="Test", command=test2).grid()
-    
-def main ():
+    def close_windows1(self):
+        self.master.destroy()
 
+class Obj_Points:
+    def __init__(self,master):
+        self.master = master
+        self.frame = Frame(self.master)
+        self.label = Label(self.frame, text = "Please Enter the X, Y and R", width = 50)
+        self.label.pack()
+        self.frame.pack()
+   
+
+class settime:
+    def __init__(self,master):
+        self.master = master
+        self.frame = Frame(self.master)
+        self.label = Label(self.frame, text= "Set Simulation Time in Seconds", width= 50)
+        self.label.pack()
+        self.EntryT = Entry(self.frame)
+        self.EntryT.pack()
+        self.but = Button(self.frame, text = "Done ", command = self.sett)
+        self.but.pack()
+        self.frame.pack()
+                          
+    def sett(self):
+        self.master.destroy()
+        
+    def getval(self):
+        return self.EntryT.get()
+                    
+
+def main ():
+    
     master = Tk()
     
-    #var = StringVar()
-    #var2 = StringVar()
-    #label = Button( root, textvariable=var, relief=FLAT,command = quit)
-    #var.set("Welcome to the PGE Sandpit! Click me to continue")
-    #root.geometry("200x200")
-    #label.pack()
     master.title("PGE-Sandbox")
     print "About to run window"
     app = wind1(master)
@@ -135,3 +177,4 @@ def main ():
 
 print "before main()"
 main ()
+
