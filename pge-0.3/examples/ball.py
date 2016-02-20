@@ -120,10 +120,22 @@ class Place_Ball:
         self.Entry3.pack(side = LEFT)
         self.but = Button(self.frame, text = "Done", command = self.close_windows1)
         self.but.pack(side =LEFT)
+        #0.55, 0.8, 0.02
+        c = placeBall (self.getfisrtval(), self.getsecval(), self.getthirdval()).mass (1).on_collision (callMe)
         self.frame.pack()
         
     def close_windows1(self):
         self.master.destroy()
+        
+    def getfisrtval(self):
+        return self.Entry1.get()
+    def getsecval(self):
+        return self.Entry2.get()
+    def getthirdval(self):
+        return self.Entry3.get()
+    
+    #def setball(self):
+      # c = placeBall (getfisrtval(), getsecval(), getthirdval).mass (1).on_collision (callMe)
 
 class Obj_Points:
     def __init__(self,master):
@@ -156,22 +168,22 @@ class settime:
 def main ():
     
     master = Tk()
-    
+  
     master.title("PGE-Sandbox")
     print "About to run window"
     app = wind1(master)
     master.mainloop()
-    c = placeBall (0.55, 0.8, 0.02).mass (1).on_collision (callMe)
-    l = placeBox ([0.3, 0.3], [0.3, 0.5], [0.5, 0.5], [0.5, 0.3])
+    #c = placeBall (0.55, 0.8, 0.02).mass (1).on_collision (callMe)
+    #l = placeBox ([0.3, 0.3], [0.3, 0.5], [0.5, 0.5], [0.5, 0.3])
         #Own code 
-    l2 = placeBox ([0.55, 0.55], [0.0, 0.0], [0.80, 0.80], [0.8, 0.2])
-    l3 = placeBox ([0.15, 0.15], [0.25, 0.25], [0.03, 0.03], [0.02, 0.8])
+    #l2 = placeBox ([0.55, 0.55], [0.0, 0.0], [0.80, 0.80], [0.8, 0.2])
+    #l3 = placeBox ([0.15, 0.15], [0.25, 0.25], [0.03, 0.03], [0.02, 0.8])
     
     b1, b2, b3, b4 = placeBoarders (boarder, wood_light)
     print "before run"
     pge.gravity ()
     pge.dump_world ()
-    pge.run (5.0)
+    pge.run (3.0)
     pge.finish ()
     
 
