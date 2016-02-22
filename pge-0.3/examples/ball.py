@@ -17,7 +17,7 @@ ball_size = 0.004
 boarder = 0.001
 white = pge.rgb (1.0, 1.0, 1.0)
 gap = 0.01
-
+num_object
 
 def placeBoarders (thickness, color):
     print "placeBoarders"
@@ -97,7 +97,7 @@ class Num_objects:
         self.master.destroy()
         
     def getval(self):
-      return self.EntryBox.get()
+      num_object = self.EntryBox.get()
 
     
 class Place_Ball:
@@ -121,11 +121,13 @@ class Place_Ball:
         self.but = Button(self.frame, text = "Done", command = self.close_windows1)
         self.but.pack(side =LEFT)
         #0.55, 0.8, 0.02
-        c = placeBall (self.getfisrtval(), self.getsecval(), self.getthirdval()).mass (1).on_collision (callMe)
         self.frame.pack()
+        #c = placeBall (self.getfisrtval(), self.getsecval(), self.getthirdval()).mass (1).on_collision (callMe)
         
-    def close_windows1(self):
-        self.master.destroy()
+        #val1 = self.getfisrtval()
+        #val2 = self.getsecval()
+        #val3 = self.getthirdval()
+        #c = placeBall(val1, val2, val3).mass (1).on_collision (callMe)
         
     def getfisrtval(self):
         return self.Entry1.get()
@@ -133,18 +135,37 @@ class Place_Ball:
         return self.Entry2.get()
     def getthirdval(self):
         return self.Entry3.get()
-    
-    #def setball(self):
-      # c = placeBall (getfisrtval(), getsecval(), getthirdval).mass (1).on_collision (callMe)
-
+    def setball(self):
+       c = placeBall (self.getfisrtval(), self.getsecval(), self.getthirdval).mass (1).on_collision (callMe)
+    def delete(self):
+        self.master.destroy()
+        
+    def close_windows1(self):
+        self.setball(self)
+        self.delete(self)
+        #self.master.destroy()
+        
 class Obj_Points:
     def __init__(self,master):
-        self.master = master
-        self.frame = Frame(self.master)
-        self.label = Label(self.frame, text = "Please Enter the X, Y and R", width = 50)
-        self.label.pack()
-        self.frame.pack()
-   
+        if num_object == 1:
+            obj1(self,master)
+        else:
+            print("Not Complete")
+        
+    def obj1(self,master):
+       self.master = master
+       self.frame = Frame(self.master)
+       self.label = Label(self.frame, text = "Please Enter X, Y and R", width = 50)
+       self.label.pack()
+       self.frame.pack()
+       
+       
+       
+       #self.master = master
+       #self.frame = Frame(self.master)
+       #self.label = Label(self.frame, text = "Please Enter the X, Y and R", width = 50)
+       #self.label.pack()
+       #self.frame.pack()
 
 class settime:
     def __init__(self,master):
