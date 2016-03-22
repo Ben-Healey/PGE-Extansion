@@ -1,0 +1,33 @@
+#!/bin/bash
+
+VERSION=0.3
+PGE=pge-${VERSION}
+
+function compile () {
+   cd $HOME/Sandpit/${PGE}
+   automake  --add-missing
+   autoreconf
+
+   cd $HOME/Sandpit
+   rm -rf build-pge
+   mkdir build-pge
+
+   cd build-pge
+   ../${PGE}/configure
+   make all
+
+   make ball
+}
+
+if [ -d ${HOME}/Sandpit/${PGE} ] ; then
+   echo "you are currently in: `pwd`"
+   echo "this script assumes that you are inside ${PGE}"
+   echo "it will destroy $HOME/Sandpit/build-pge"
+   echo "press enter to continue or ^C to abort"
+   read ans
+   compile
+else
+   echo "this script assumes that you are inside ${PGE}"
+   echo "and that the directory $HOME/Sandpit/${PGE} exists"
+fi
+

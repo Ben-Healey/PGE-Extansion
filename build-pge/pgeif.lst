@@ -1,0 +1,135 @@
+Storage
+SYSTEM
+M2RTS
+RTExceptions
+IOLink
+# SYSTEM   14 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/SYSTEM.mod
+# Indexing   14 ../pge-0.3/Indexing.mod
+# NumberIO   14 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/NumberIO.mod
+# libc   13 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/libc.def FOR 'C'
+# StrLib   13 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/StrLib.mod
+# FIO   13 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/FIO.mod
+# errno   13 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/errno.def
+# termios   13 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/termios.def
+# IO   12 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/IO.mod
+# StdIO   11 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/StdIO.mod
+# ErrnoCategory   10 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/ErrnoCategory.def
+# Debug   10 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/Debug.mod
+# IOConsts    9 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/IOConsts.mod
+# RTio    9 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/RTio.mod
+# SysExceptions    9 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/SysExceptions.def
+# SysStorage    9 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/SysStorage.mod
+# RTgen    9 ../pge-0.3/RTgen.mod
+# RTgenif    9 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/RTgenif.mod
+# ChanConsts    9 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/ChanConsts.mod
+# ASCII    8 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/ASCII.mod
+# RTExceptions    8 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/RTExceptions.mod
+# M2EXCEPTION    8 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/M2EXCEPTION.mod
+# StdChans    8 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/StdChans.mod
+# M2RTS    8 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/M2RTS.mod
+# Storage    8 ../pge-0.3/Storage.mod
+# StrIO    8 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/StrIO.mod
+# RTentity    7 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/RTentity.mod
+# libm    7 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/libm.def FOR 'C'
+# ldtoa    7 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/ldtoa.def
+# dtoa    7 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/dtoa.def
+# Assertion    7 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/Assertion.mod
+# ConvTypes    7 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/ConvTypes.mod
+# IOChan    7 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/IOChan.mod
+# CharClass    7 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/CharClass.mod
+# EXCEPTIONS    7 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/EXCEPTIONS.mod
+# DynamicStrings    6 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/DynamicStrings.mod
+# WholeConv    6 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/WholeConv.mod
+# StringConvert    6 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/StringConvert.mod
+# gdbif    6 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/gdbif.mod
+# IOLink    6 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/IOLink.mod
+# RTdata    5 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/RTdata.mod
+# WholeStr    5 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/WholeStr.mod
+# wrapsock    5 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/wrapsock.def
+# wrapc    5 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/wrapc.def
+# RTfio    5 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/RTfio.mod
+# GC    5 ../pge-0.3/GC.mod
+# Strings    5 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/Strings.mod
+# ComplexMath    5 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/ComplexMath.mod
+# cbuiltin    5 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/cbuiltin.def FOR 'C'
+# Selective    4 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/Selective.def
+# coord    4 ../pge-0.3/coord.mod
+# MathLib0    4 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/MathLib0.mod
+# RawIO    4 ../pge-0.3/RawIO.mod
+# Fractions    4 ../pge-0.3/Fractions.mod
+# Builtins    4 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/pim/Builtins.mod
+# roots    4 ../pge-0.3/roots.mod
+# Points    4 ../pge-0.3/Points.mod
+# ClientSocket    4 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/ClientSocket.mod
+# SeqFile    4 /opt/gm2/lib/gcc/x86_64-linux-gnu/4.7.4/m2/iso/SeqFile.mod
+# network    4 ../pge-0.3/network.def FOR 'C'
+# MemStream    3 ../pge-0.3/MemStream.mod
+# deviceIf    3 ../pge-0.3/deviceIf.mod
+# polar    3 ../pge-0.3/polar.mod
+# history    3 ../pge-0.3/history.mod
+# delay    3 ../pge-0.3/delay.mod
+# NetworkOrder    3 ../pge-0.3/NetworkOrder.mod
+# twoDsim    2 ../pge-0.3/twoDsim.mod
+# pgeif    1 /tmp/ccT3SqFk.mod
+#
+# Initialization order
+#
+Indexing
+NumberIO
+StrLib
+FIO
+errno
+termios
+IO
+StdIO
+ErrnoCategory
+Debug
+IOConsts
+RTio
+SysExceptions
+SysStorage
+RTgen
+RTgenif
+ChanConsts
+ASCII
+M2EXCEPTION
+StdChans
+StrIO
+RTentity
+ldtoa
+dtoa
+Assertion
+ConvTypes
+IOChan
+CharClass
+EXCEPTIONS
+DynamicStrings
+WholeConv
+StringConvert
+gdbif
+RTdata
+WholeStr
+wrapsock
+wrapc
+RTfio
+GC
+Strings
+ComplexMath
+Selective
+coord
+MathLib0
+RawIO
+Fractions
+Builtins
+roots
+Points
+ClientSocket
+SeqFile
+MemStream
+deviceIf
+polar
+history
+delay
+NetworkOrder
+twoDsim
+pgeif
