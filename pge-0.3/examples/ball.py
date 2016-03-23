@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-import pge, sys, pygame
+
+import pge, sys, pygame, time
 from Tkinter import *
 
 
@@ -13,13 +14,13 @@ wood_light = pge.rgb (166.0/256.0, 124.0/256.0, 54.0/256.0)
 wood_dark = pge.rgb (76.0/256.0, 47.0/256.0, 0.0)
 red = pge.rgb (1.0, 0.0, 0.0)
 metal = pge.rgb (0.5, 0.5, 0.5)
-ball_size = 0.004
+ball_size = 0.04
 boarder = 0.001
 white = pge.rgb (1.0, 1.0, 1.0)
 gap = 0.01
-firstval = 0
-secval = 0
-thirdval = 0
+#firstval = 0 
+#secval = 0
+#thirdval = 0
 def placeBoarders (thickness, color):
     print "placeBoarders"
     e1 = pge.box (0.0, 0.0, 1.0, thickness, color).fix ()
@@ -99,16 +100,17 @@ class Num_objects:
         
     def getval(self):
       num_object = self.EntryBox.get()
-      print num_object
+
     
 class Place_Ball:
+
     def __init__(self,master):
         self.master = master
         self.frame = Frame(self.master)
         self.label = Label(self.frame, text = "Please Enter the X, Y and R", width = 50)
         self.label.pack()
         self.label2 = Label(self.frame, text ="X: ")
-        self.Entry1 = Entry(self.frame) 
+        self.Entry1 = Entry(self.frame)
         self.label2.pack(side = LEFT)
         self.Entry1.pack(side = LEFT)
         self.label3 = Label(self.frame, text = "Y: ")
@@ -123,34 +125,14 @@ class Place_Ball:
         self.but.pack(side =LEFT)
         #0.55, 0.8, 0.02
         self.frame.pack()
-        #c = placeBall (self.getfisrtval(), self.getsecval(), self.getthirdval()).mass (1).on_collision (callMe)
-        
-       # val1 = self.getfisrtval()
-       # val2 = self.getsecval()
-       # val3 = self.getthirdval()
-       # c = placeBall(val1, val2, val3).mass (1).on_collision (callMe)
-        
-    def getfisrtval(self):
-        firstval = self.Entry1.get()
-        global firstval
-        print firstval
-    def getsecval(self):
-        secval = self.Entry2.get()
-        global secval
-        print secval
-    def getthirdval(self):
-        thirdval = self.Entry3.get()
-        global thirdval
-        print thirdval
-    def setball(self):
-       c = placeBall (firstval, secval, thirdval).mass (1).on_collision (callMe)
-    def delete(self):
-        self.master.destroy()
-        
+        print(self.Entry1.get())
+        firstval =  0.55
+        secval = 0.8
+        thirdval = 0.02
+        c = placeBall (firstval, secval, thirdval).mass (1).on_collision (callMe)
+
     def close_windows1(self):
-        self.setball(self)
-        self.delete(self)
-        #self.master.destroy()
+        self.master.destroy()
         
 class Obj_Points:
     def __init__(self,master):
@@ -204,16 +186,14 @@ def main ():
     #c = placeBall (0.55, 0.8, 0.02).mass (1).on_collision (callMe)
     #l = placeBox ([0.3, 0.3], [0.3, 0.5], [0.5, 0.5], [0.5, 0.3])
         #Own code 
-    #l2 = placeBox ([0.55, 0.55], [0.0, 0.0], [0.80, 0.80], [0.8, 0.2])
+   # l2 = placeBox ([0.55, 0.55], [0.0, 0.0], [0.80, 0.80], [0.8, 0.2])
     #l3 = placeBox ([0.15, 0.15], [0.25, 0.25], [0.03, 0.03], [0.02, 0.8])
-    
     b1, b2, b3, b4 = placeBoarders (boarder, wood_light)
     print "before run"
     pge.gravity ()
     pge.dump_world ()
     pge.run (3.0)
     pge.finish ()
-    
 
 print "before main()"
 main ()

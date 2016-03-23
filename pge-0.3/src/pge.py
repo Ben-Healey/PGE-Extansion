@@ -171,6 +171,7 @@ class object:
         return self
 
     def on_collision (self, p):
+        # type: (object) -> object
         self.on_collision_with ([], p)
         return self
 
