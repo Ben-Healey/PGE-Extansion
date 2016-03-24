@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 
-
 import pge, sys, pygame, time
 from Tkinter import *
-
 
 print "Start Game"
 pge.batch ()  # this works
@@ -18,9 +16,10 @@ ball_size = 0.04
 boarder = 0.001
 white = pge.rgb (1.0, 1.0, 1.0)
 gap = 0.01
-#firstval = 0 
-#secval = 0
-#thirdval = 0
+
+global firstval
+global secval
+global thirdval
 def placeBoarders (thickness, color):
     print "placeBoarders"
     e1 = pge.box (0.0, 0.0, 1.0, thickness, color).fix ()
@@ -55,7 +54,7 @@ class wind1:
         self.button3 = Button(self.frame, text = 'Set Points for Each Object ',width = 40, command  = self.Obj_windows) 
         self.button4 = Button(self.frame, text = 'Set Simulation Time', width = 40, command = self.time_windows)
         self.button5 = Button(self.frame, text = 'Continue To Simulation', width = 40, command = self.kill_window)
-        self.lab = Label(self.frame, text= "Welcome to the PGE Sandbox")
+        self.lab = Label(self.frame, text= "Welcome to the PGE Sandbox!")
         self.lab.pack()
         self.button1.pack()
         self.button2.pack()
@@ -103,8 +102,8 @@ class Num_objects:
 
     
 class Place_Ball:
-
-    def __init__(self,master):
+    
+     def __init__(self,master):
         self.master = master
         self.frame = Frame(self.master)
         self.label = Label(self.frame, text = "Please Enter the X, Y and R", width = 50)
@@ -122,16 +121,21 @@ class Place_Ball:
         self.label4.pack(side = LEFT)
         self.Entry3.pack(side = LEFT)
         self.but = Button(self.frame, text = "Done", command = self.close_windows1)
-        self.but.pack(side =LEFT)
-        #0.55, 0.8, 0.02
+        self.but.pack(side =LEFT)   
         self.frame.pack()
-        print(self.Entry1.get())
-        firstval =  0.55
-        secval = 0.8
-        thirdval = 0.02
-        c = placeBall (firstval, secval, thirdval).mass (1).on_collision (callMe)
+	   #old ball creation no longer needed
+       # print(self.Entry1.get())
+       # self.firstval.set(self.Entry1.get()) 
+       # secval = 0.8
+       # thirdval = 0.02
+       # c = placeBall (self.firstval, secval, thirdval).mass (1).on_collision (callMe)
 
-    def close_windows1(self):
+     def close_windows1(self):
+        print(self.Entry1.get())
+        firstval = float(self.Entry1.get()) 
+        secval = float(self.Entry2.get())
+        thirdval = float(self.Entry3.get()) 
+        c = placeBall (firstval, secval, thirdval).mass (1).on_collision (callMe)
         self.master.destroy()
         
 class Obj_Points:
@@ -194,7 +198,7 @@ def main ():
     pge.dump_world ()
     pge.run (3.0)
     pge.finish ()
-
+    
 print "before main()"
 main ()
 
