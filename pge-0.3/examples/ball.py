@@ -5,7 +5,7 @@ from Tkinter import *
 
 print "Start Game"
 pge.batch ()  # this works
-# pge.interactive () # and this fails (the code is incomplete)
+
 
 t = pge.rgb (1.0/2.0, 2.0/3.0, 3.0/4.0)
 wood_light = pge.rgb (166.0/256.0, 124.0/256.0, 54.0/256.0)
@@ -17,9 +17,7 @@ boarder = 0.001
 white = pge.rgb (1.0, 1.0, 1.0)
 gap = 0.01
 
-global firstval
-global secval
-global thirdval
+
 def placeBoarders (thickness, color):
     print "placeBoarders"
     e1 = pge.box (0.0, 0.0, 1.0, thickness, color).fix ()
@@ -93,12 +91,12 @@ class Num_objects:
         self.but = Button(self.frame, text = "Done",command = self.close_windows)
         self.but.pack(side = LEFT)
         self.frame.pack()
+   
     def close_windows(self):
-        print self.EntryBox.get()
+        global num_objects
+        num_objects = int(self.EntryBox.get())
+        print num_objects
         self.master.destroy()
-        
-    def getval(self):
-      num_object = self.EntryBox.get()
 
     
 class Place_Ball:
@@ -140,25 +138,16 @@ class Place_Ball:
         
 class Obj_Points:
     def __init__(self,master):
-        if num_object == 1:
-            obj1(self,master)
-        else:
-            print("Not Complete")
-        
+       if num_objects == 1:
+          obj1(self, master)
+       else:
+          print("NOT COMPLETE!")          
     def obj1(self,master):
        self.master = master
        self.frame = Frame(self.master)
        self.label = Label(self.frame, text = "Please Enter X, Y and R", width = 50)
        self.label.pack()
        self.frame.pack()
-       
-       
-       
-       #self.master = master
-       #self.frame = Frame(self.master)
-       #self.label = Label(self.frame, text = "Please Enter the X, Y and R", width = 50)
-       #self.label.pack()
-       #self.frame.pack()
 
 class settime:
     def __init__(self,master):
@@ -173,10 +162,10 @@ class settime:
         self.frame.pack()
                           
     def sett(self):
+        global time
+        time = float(self.EntryT.get())
+        print time
         self.master.destroy()
-        
-    def getval(self):
-        return self.EntryT.get()
                     
 
 def main ():
@@ -196,7 +185,7 @@ def main ():
     print "before run"
     pge.gravity ()
     pge.dump_world ()
-    pge.run (3.0)
+    pge.run (time)
     pge.finish ()
     
 print "before main()"
