@@ -4,7 +4,7 @@ import pge, sys, pygame, time
 from Tkinter import *
 
 print "Start Game"
-pge.batch ()  # this works
+pge.batch ()
 
 
 t = pge.rgb (1.0/2.0, 2.0/3.0, 3.0/4.0)
@@ -53,13 +53,13 @@ class wind1:
         self.button4 = Button(self.frame, text = 'Set Simulation Time', width = 40, command = self.time_windows)
         self.button5 = Button(self.frame, text = 'Continue To Simulation', width = 40, command = self.kill_window)
         self.lab = Label(self.frame, text= "Welcome to the PGE Sandbox!")
-        self.lab.pack()
-        self.button1.pack()
-        self.button2.pack()
-        self.button3.pack()
-        self.button4.pack()
-        self.button5.pack()
-        self.frame.pack()
+        self.lab.grid()
+        self.button1.grid()
+        self.button2.grid()
+        self.button3.grid()
+        self.button4.grid()
+        self.button5.grid()
+        self.frame.grid()
         
     def Num_window(self):
         self.newWindow = Toplevel(self.master)
@@ -84,13 +84,13 @@ class Num_objects:
     def __init__(self, master):
         self.master = master
         self.frame = Frame(self.master)
-        self.Label = Label (self.frame, text = "How many objects would you like to add to the sandbox", width = 50)
-        self.Label.pack()
+        self.Label = Label (self.frame, text = "How many objects would you like to add to the sandbox", width = 45)
         self.EntryBox = Entry(self.frame)
-        self.EntryBox.pack(side = LEFT)
         self.but = Button(self.frame, text = "Done",command = self.close_windows)
-        self.but.pack(side = LEFT)
-        self.frame.pack()
+        self.Label.grid(column = 0)
+        self.EntryBox.grid(row = 1, column = 0)
+        self.but.grid(row = 1, column = 0, sticky=E)
+        self.frame.grid()
    
     def close_windows(self):
         global num_objects
@@ -104,23 +104,23 @@ class Place_Ball:
      def __init__(self,master):
         self.master = master
         self.frame = Frame(self.master)
-        self.label = Label(self.frame, text = "Please Enter the X, Y and R", width = 50)
-        self.label.pack()
-        self.label2 = Label(self.frame, text ="X: ")
+        self.label = Label(self.frame, text = "Please Enter the X, Y and R:", width = 50)
+        self.label.grid(columnspan = 2, sticky = W+E)
+        self.label2 = Label(self.frame, text ="X:")
         self.Entry1 = Entry(self.frame)
-        self.label2.pack(side = LEFT)
-        self.Entry1.pack(side = LEFT)
-        self.label3 = Label(self.frame, text = "Y: ")
+        self.label2.grid(row = 2, sticky = W+E)
+        self.Entry1.grid(row = 2, column = 1)
+        self.label3 = Label(self.frame, text = "Y:")
         self.Entry2 = Entry(self.frame)
-        self.label3.pack(side = LEFT)
-        self.Entry2.pack(side = LEFT)
-        self.label4 = Label(self.frame, text = "R: ")
+        self.label3.grid(row = 3, sticky = W+E)
+        self.Entry2.grid(row = 3, column = 1)
+        self.label4 = Label(self.frame, text = "R:")
         self.Entry3 = Entry(self.frame)
-        self.label4.pack(side = LEFT)
-        self.Entry3.pack(side = LEFT)
+        self.label4.grid(row = 4, sticky = W+E)
+        self.Entry3.grid(row = 4, column = 1)
         self.but = Button(self.frame, text = "Done", command = self.close_windows1)
-        self.but.pack(side =LEFT)   
-        self.frame.pack()
+        self.but.grid(row = 5,columnspan = 2, sticky = W+E)   
+        self.frame.grid()
 	   #old ball creation no longer needed
        # print(self.Entry1.get())
        # self.firstval.set(self.Entry1.get()) 
@@ -137,29 +137,60 @@ class Place_Ball:
         self.master.destroy()
         
 class Obj_Points:
+
     def __init__(self,master):
        if num_objects == 1:
-          obj1(self, master)
+          self.master = master
+          self.frame = Frame(self.master)
+          self.label = Label(self.frame, text = "Please Enter Four Points for the Object", width = 50)
+          self.label.grid()
+          self.label2 = Label(self.frame, text = "First point(X,Y) : ")
+          self.label2.grid(row = 2, sticky = W+E)
+          self.Entry1 = Entry(self.frame)
+          self.Entry1.grid(row = 2, column = 1)
+          self.Entry2 = Entry(self.frame)
+          self.Entry2.grid(row = 2, column = 2)
+          self.label3 = Label(self.frame, text = "Second Point(X,Y) : ")
+          self.label3.grid(row = 3)
+          self.Entry3 = Entry(self.frame)
+          self.Entry3.grid(row = 3, column = 1)
+          self.Entry4 = Entry(self.frame)
+          self.Entry4.grid(row = 3, column = 2)
+          self.label4 = Label(self.frame, text = "Third Point(X,Y) : ")
+          #Needs to be finished
+          self.frame.grid()
+       elif num_objects == 2:
+          self.master = master
+          self.frame = Frame(self.master)
+          self.label = Label(self.frame, test = "Num Objects 2", width = 50)
+          self.label.grid()
+          self.frame.grid()
+       elif num_objects == 3:
+          self.master = master
+          self.frame = Frame(self.master)
+          self.label = Label(self.frame, text = "num objects 3", width = 50)
+          self.label.grid()
+          self.frame.grid()
+       elif num_objects == 4:
+          self.master = master
+          self.frame = Frame(self.master)
+          self.label = Label(self.frame, text = "num objects 4", width = 50)
+          self.label.grid()
+          self.frame.grid()
        else:
-          print("NOT COMPLETE!")          
-    def obj1(self,master):
-       self.master = master
-       self.frame = Frame(self.master)
-       self.label = Label(self.frame, text = "Please Enter X, Y and R", width = 50)
-       self.label.pack()
-       self.frame.pack()
+          print("NOT COMPLETE!")
 
 class settime:
     def __init__(self,master):
         self.master = master
         self.frame = Frame(self.master)
-        self.label = Label(self.frame, text= "Set Simulation Time in Seconds", width= 50)
-        self.label.pack()
+        self.label = Label(self.frame, text= "Set Simulation Time (In Seconds)", width= 50)
+        self.label.grid()
         self.EntryT = Entry(self.frame)
-        self.EntryT.pack()
+        self.EntryT.grid()
         self.but = Button(self.frame, text = "Done ", command = self.sett)
-        self.but.pack()
-        self.frame.pack()
+        self.but.grid()
+        self.frame.grid()
                           
     def sett(self):
         global time
