@@ -121,12 +121,6 @@ class Place_Ball:
         self.but = Button(self.frame, text = "Done", command = self.close_windows1)
         self.but.grid(row = 5,columnspan = 2, sticky = W+E)   
         self.frame.grid()
-	   #old ball creation no longer needed
-       # print(self.Entry1.get())
-       # self.firstval.set(self.Entry1.get()) 
-       # secval = 0.8
-       # thirdval = 0.02
-       # c = placeBall (self.firstval, secval, thirdval).mass (1).on_collision (callMe)
 
      def close_windows1(self):
         print(self.Entry1.get())
@@ -143,43 +137,291 @@ class Obj_Points:
           self.master = master
           self.frame = Frame(self.master)
           self.label = Label(self.frame, text = "Please Enter Four Points for the Object", width = 50)
-          self.label.grid()
+          self.label.grid(columnspan = 3)
+          #Start of first point
           self.label2 = Label(self.frame, text = "First point(X,Y) : ")
           self.label2.grid(row = 2, sticky = W+E)
           self.Entry1 = Entry(self.frame)
           self.Entry1.grid(row = 2, column = 1)
           self.Entry2 = Entry(self.frame)
           self.Entry2.grid(row = 2, column = 2)
+          #Start of Second point
           self.label3 = Label(self.frame, text = "Second Point(X,Y) : ")
           self.label3.grid(row = 3)
           self.Entry3 = Entry(self.frame)
           self.Entry3.grid(row = 3, column = 1)
           self.Entry4 = Entry(self.frame)
           self.Entry4.grid(row = 3, column = 2)
+          #Start of third point
           self.label4 = Label(self.frame, text = "Third Point(X,Y) : ")
-          #Needs to be finished
+          self.label4.grid(row = 4)
+          self.Entry5 = Entry(self.frame)
+          self.Entry5.grid(row = 4, column = 1)
+          self.Entry6 = Entry(self.frame)
+          self.Entry6.grid(row = 4, column = 2)
+          #start of fourth point
+          self.label5 = Label(self.frame, text = "Fourth Point(X,Y) : ")
+          self.label5.grid(row = 5)
+          self.Entry7 = Entry(self.frame)
+          self.Entry7.grid(row = 5, column = 1)
+          self.Entry8 = Entry(self.frame)
+          self.Entry8.grid(row = 5, column = 2) 
+          self.button = Button(self.frame, text = "Done", command = self.close) 
+          self.button.grid(row = 6,columnspan = 3, sticky = W + E)
           self.frame.grid()
        elif num_objects == 2:
           self.master = master
           self.frame = Frame(self.master)
-          self.label = Label(self.frame, test = "Num Objects 2", width = 50)
-          self.label.grid()
+          self.label = Label(self.frame, text = "Please Enter The First Objects Four Points", width = 50)
+          self.label.grid(columnspan = 3)
+          #start of first point
+          self.label2 = Label(self.frame, text = "First Point (X,Y) : ")
+          self.label2.grid(row = 2, sticky =W +E)
+          self.Entry1 = Entry(self.frame)
+          self.Entry1.grid(row = 2, column = 1)
+          self.Entry2 = Entry(self.frame)
+          self.Entry2.grid(row = 2, column = 2)
+          #start of second point
+          self.label3 = Label(self.frame, text = "Second Point(X,Y) : ")
+          self.label3.grid(row = 3, sticky =W +E)
+          self.Entry3 = Entry(self.frame)
+          self.Entry3.grid(row = 3, column = 1)
+          self.Entry4 = Entry(self.frame)
+          self.Entry4.grid(row = 3, column = 2)
+          #Start of third point
+          self.label4 = Label(self.frame, text = "Third Point(X,Y) : ")
+          self.label4.grid(row = 4, sticky =W +E)
+          self.Entry5 = Entry(self.frame)
+          self.Entry5.grid(row = 4, column = 1)
+          self.Entry6 = Entry(self.frame)
+          self.Entry6.grid(row = 4, column = 2)
+          #Start of Fourth point
+          self.label5 = Label(self.frame, text = "Fourth Point(X,Y) : ")
+          self.label5.grid(row = 5, sticky =W +E)
+          self.Entry7 = Entry(self.frame)
+          self.Entry7.grid(row = 5, column = 1)
+          self.Entry8 = Entry(self.frame)
+          self.Entry8.grid(row = 5, column = 2)
+          self.button = Button(self.frame, text = "Done", command = self.Sec)
+          self.button.grid(row = 6, columnspan = 3, sticky = W + E)
           self.frame.grid()
        elif num_objects == 3:
           self.master = master
           self.frame = Frame(self.master)
-          self.label = Label(self.frame, text = "num objects 3", width = 50)
+          self.label = Label(self.frame, text = "Please Enter The First Objects Four Points", width = 50)
           self.label.grid()
+          #start of first point
+          self.label2 = Label(self.frame, text = "First Point (X,Y) : ")
+          self.label2.grid(row = 2, sticky =W +E)
+          self.Entry1 = Entry(self.frame)
+          self.Entry1.grid(row = 2, column = 1)
+          self.Entry2 = Entry(self.frame)
+          self.Entry2.grid(row = 2, column = 2)
+          #start of second point
+          self.label3 = Label(self.frame, text = "Second Point(X,Y) : ")
+          self.label3.grid(row = 3, sticky =W +E)
+          self.Entry3 = Entry(self.frame)
+          self.Entry3.grid(row = 3, column = 1)
+          self.Entry4 = Entry(self.frame)
+          self.Entry4.grid(row = 3, column = 2)
+          #Start of third point
+          self.label4 = Label(self.frame, text = "Third Point(X,Y) : ")
+          self.label4.grid(row = 4, sticky =W +E)
+          self.Entry5 = Entry(self.frame)
+          self.Entry5.grid(row = 4, column = 1)
+          self.Entry6 = Entry(self.frame)
+          self.Entry6.grid(row = 4, column = 2)
+          #Start of Fourth point
+          self.label5 = Label(self.frame, text = "Fourth Point(X,Y) : ")
+          self.label5.grid(row = 5, sticky =W +E)
+          self.Entry7 = Entry(self.frame)
+          self.Entry7.grid(row = 5, column = 1)
+          self.Entry8 = Entry(self.frame)
+          self.Entry8.grid(row = 5, column = 2)
+          self.button = Button(self.frame, text = "Done", command = self.Sec)
+          self.button.grid(row = 6, columnspan = 3, sticky = W + E)
           self.frame.grid()
        elif num_objects == 4:
           self.master = master
           self.frame = Frame(self.master)
-          self.label = Label(self.frame, text = "num objects 4", width = 50)
+          self.label = Label(self.frame, text = "Please Enter The First Objects Four Points", width = 50)
           self.label.grid()
+          #start of first point
+          self.label2 = Label(self.frame, text = "First Point (X,Y) : ")
+          self.label2.grid(row = 2, sticky =W +E)
+          self.Entry1 = Entry(self.frame)
+          self.Entry1.grid(row = 2, column = 1)
+          self.Entry2 = Entry(self.frame)
+          self.Entry2.grid(row = 2, column = 2)
+          #start of second point
+          self.label3 = Label(self.frame, text = "Second Point(X,Y) : ")
+          self.label3.grid(row = 3, sticky =W +E)
+          self.Entry3 = Entry(self.frame)
+          self.Entry3.grid(row = 3, column = 1)
+          self.Entry4 = Entry(self.frame)
+          self.Entry4.grid(row = 3, column = 2)
+          #Start of third point
+          self.label4 = Label(self.frame, text = "Third Point(X,Y) : ")
+          self.label4.grid(row = 4, sticky =W +E)
+          self.Entry5 = Entry(self.frame)
+          self.Entry5.grid(row = 4, column = 1)
+          self.Entry6 = Entry(self.frame)
+          self.Entry6.grid(row = 4, column = 2)
+          #Start of Fourth point
+          self.label5 = Label(self.frame, text = "Fourth Point(X,Y) : ")
+          self.label5.grid(row = 5, sticky =W +E)
+          self.Entry7 = Entry(self.frame)
+          self.Entry7.grid(row = 5, column = 1)
+          self.Entry8 = Entry(self.frame)
+          self.Entry8.grid(row = 5, column = 2)
+          self.button = Button(self.frame, text = "Done", command = self.Sec)
+          self.button.grid(row = 6, columnspan = 3, sticky = W + E)
           self.frame.grid()
        else:
-          print("NOT COMPLETE!")
+          self.master = master
+          self.frame = Frame(self.master)
+          self.label = Label(self.frame, text = "Invalid or No Number Has Been Inputted")
+          self.label.grid()
+          self.button = Button(self.frame, text = "Done", command =  self.close)
+          self.button.grid()
+          self.frame.grid()
 
+    def close(self):
+
+      if num_objects == 1:
+        x1 = float(self.Entry1.get())
+        y1 = float(self.Entry2.get())
+        x2 = float(self.Entry3.get())
+        y2 = float(self.Entry4.get())
+        x3 = float(self.Entry5.get())
+        y3 = float(self.Entry6.get())
+        x4 = float(self.Entry7.get())
+        y4 = float(self.Entry8.get())
+        t = placeBox([x1,y1],[x2,y2],[x3,y3],[x4,y3])
+        self.master.destroy()
+      else:
+        self.master.destroy()
+
+    def Sec(self):
+         self.frame.grid_forget()
+         self.frame = Frame(self.master)
+         self.label = Label(self.frame, text = "Please Enter The Second Objects Four Points", width = 50)
+         self.label.grid(columnspan = 3)
+         #Start of second point
+         self.label2 = Label(self.frame, text = "First Point (X,Y) : ")
+         self.label2.grid(row = 2, sticky =W +E)
+         self.Entry1 = Entry(self.frame)
+         self.Entry1.grid(row = 2, column = 1)
+         self.Entry2 = Entry(self.frame)
+         self.Entry2.grid(row = 2, column = 2)
+         #Start of second point
+         self.label3 = Label(self.frame, text = "Second Point(X,Y) : ")
+         self.label3.grid(row = 3, sticky =W +E)
+         self.Entry3 = Entry(self.frame)
+         self.Entry3.grid(row = 3, column = 1)
+         self.Entry4 = Entry(self.frame)
+         self.Entry4.grid(row = 3, column = 2)
+         #Start of third point
+         self.label4 = Label(self.frame, text = "Third Point(X,Y) : ")
+         self.label4.grid(row = 4, sticky =W +E)
+         self.Entry5 = Entry(self.frame)
+         self.Entry5.grid(row = 4, column = 1)
+         self.Entry6 = Entry(self.frame)
+         self.Entry6.grid(row = 4, column = 2)
+         #Start of Fourth point
+         self.label5 = Label(self.frame, text = "Fourth Point(X,Y) : ")
+         self.label5.grid(row = 5, sticky =W +E)
+         self.Entry7 = Entry(self.frame)
+         self.Entry7.grid(row = 5, column = 1)
+         self.Entry8 = Entry(self.frame)
+         self.Entry8.grid(row = 5, column = 2)
+      
+         if num_objects == 2:
+             self.button = Button(self.frame, text = "Done", command =  self.close)
+         else:
+              self.button = Button(self.frame, text = "Done", command =  self.third)   
+         
+         self.button.grid()
+         self.frame.grid()
+
+    def third(self):
+         self.frame.grid_forget()
+         self.frame = Frame(self.master)
+         self.label = Label(self.frame, text = "Please Enter The Third Objects Four Points", width = 50)
+         self.label.grid(columnspan = 3)
+         #Start of second point
+         self.label2 = Label(self.frame, text = "First Point (X,Y) : ")
+         self.label2.grid(row = 2, sticky =W +E)
+         self.Entry1 = Entry(self.frame)
+         self.Entry1.grid(row = 2, column = 1)
+         self.Entry2 = Entry(self.frame)
+         self.Entry2.grid(row = 2, column = 2)
+         #Start of second point
+         self.label3 = Label(self.frame, text = "Second Point(X,Y) : ")
+         self.label3.grid(row = 3, sticky =W +E)
+         self.Entry3 = Entry(self.frame)
+         self.Entry3.grid(row = 3, column = 1)
+         self.Entry4 = Entry(self.frame)
+         self.Entry4.grid(row = 3, column = 2)
+         #Start of third point
+         self.label4 = Label(self.frame, text = "Third Point(X,Y) : ")
+         self.label4.grid(row = 4, sticky =W +E)
+         self.Entry5 = Entry(self.frame)
+         self.Entry5.grid(row = 4, column = 1)
+         self.Entry6 = Entry(self.frame)
+         self.Entry6.grid(row = 4, column = 2)
+         #Start of Fourth point
+         self.label5 = Label(self.frame, text = "Fourth Point(X,Y) : ")
+         self.label5.grid(row = 5, sticky =W +E)
+         self.Entry7 = Entry(self.frame)
+         self.Entry7.grid(row = 5, column = 1)
+         self.Entry8 = Entry(self.frame)
+         self.Entry8.grid(row = 5, column = 2)
+      
+         if num_objects == 3:
+             self.button = Button(self.frame, text = "Done", command =  self.close)
+         else:
+              self.button = Button(self.frame, text = "Done", command =  self.fourth)   
+         
+         self.button.grid()
+         self.frame.grid()
+         
+    def fourth(self):
+         self.frame.grid_forget()
+         self.frame = Frame(self.master)
+         self.label = Label(self.frame, text = "Please Enter The Fourth Objects Four Points", width = 50)
+         self.label.grid(columnspan = 3)
+         #Start of second point
+         self.label2 = Label(self.frame, text = "First Point (X,Y) : ")
+         self.label2.grid(row = 2, sticky =W +E)
+         self.Entry1 = Entry(self.frame)
+         self.Entry1.grid(row = 2, column = 1)
+         self.Entry2 = Entry(self.frame)
+         self.Entry2.grid(row = 2, column = 2)
+         #Start of second point
+         self.label3 = Label(self.frame, text = "Second Point(X,Y) : ")
+         self.label3.grid(row = 3, sticky =W +E)
+         self.Entry3 = Entry(self.frame)
+         self.Entry3.grid(row = 3, column = 1)
+         self.Entry4 = Entry(self.frame)
+         self.Entry4.grid(row = 3, column = 2)
+         #Start of third point
+         self.label4 = Label(self.frame, text = "Third Point(X,Y) : ")
+         self.label4.grid(row = 4, sticky =W +E)
+         self.Entry5 = Entry(self.frame)
+         self.Entry5.grid(row = 4, column = 1)
+         self.Entry6 = Entry(self.frame)
+         self.Entry6.grid(row = 4, column = 2)
+         #Start of Fourth point
+         self.label5 = Label(self.frame, text = "Fourth Point(X,Y) : ")
+         self.label5.grid(row = 5, sticky =W +E)
+         self.Entry7 = Entry(self.frame)
+         self.Entry7.grid(row = 5, column = 1)
+         self.Entry8 = Entry(self.frame)
+         self.Entry8.grid(row = 5, column = 2)
+         self.button = Button(self.frame, text = "Done", command =  self.close)
+         self.button.grid()
+         self.frame.grid()
 class settime:
     def __init__(self,master):
         self.master = master
