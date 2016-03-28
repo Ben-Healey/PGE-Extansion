@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import pge, sys, pygame, time
+import pge, sys, pygame, time, config
 from Tkinter import *
 
 print "Start Game"
@@ -56,9 +56,17 @@ class wind1:
         self.button4.grid()
         self.button5.grid()
         self.frame.grid()
+        print "Ball Boolean: "
+        print config.Ball
+        print "Number of Objects Boolean: "
+        print config.NumObjects
+        print "Object Points Boolean: "
+        print config.ObjectPoints
+        print "Simulation Time Boolean: "
+        print config.SimTime
     def Num_window(self):
         self.newWindow = Toplevel(self.master)
-        self.app = Num_objects(self.newWindow)
+        self.app = Num_Objects(self.newWindow)
     
     def Ball_windows(self):
         self.newWindow = Toplevel(self.master)
@@ -73,25 +81,29 @@ class wind1:
         self.app = settime(self.newWindow)
     
     def kill_window(self):
+        if config.Ball == True and config.NumObjects == True and config.ObjectPoints == True and config.SimTime == True:
          self.master.destroy()
+        else:
+         print "Didnt Work"
+         self.newWindow = Toplevel(self.master)
+         self.app = Error(self.newWindow)
 
-        
-class Num_objects:
+class Num_Objects:
     def __init__(self, master):
         self.master = master
         self.frame = Frame(self.master)
-        self.Label = Label (self.frame, text = "How many objects would you like to add to the sandbox", width = 45)
+        self.Label = Label (self.frame, text = "How many objects would you like to add to the sandbox (1-4)", width = 49)
         self.EntryBox = Entry(self.frame)
         self.but = Button(self.frame, text = "Done",command = self.close_windows)
         self.Label.grid(column = 0)
-        self.EntryBox.grid(row = 1, column = 0)
+        self.EntryBox.grid(row = 1, column = 0,columnspan = 3 ,sticky = W)
         self.but.grid(row = 1, column = 0, sticky=E)
         self.frame.grid()
    
     def close_windows(self):
-        global num_objects
-        num_objects = int(self.EntryBox.get())
-        print num_objects
+        config.NumObjects = True
+        config.Num_Objects = int(self.EntryBox.get())
+        print config.Num_Objects
         self.master.destroy()
 
     
@@ -119,6 +131,8 @@ class Place_Ball:
         self.frame.grid()
 
      def close_windows1(self):
+        config.Ball = True
+        print config.Ball
         print(self.Entry1.get())
         firstval = float(self.Entry1.get()) 
         secval = float(self.Entry2.get())
@@ -129,7 +143,7 @@ class Place_Ball:
 class Obj_Points:
 
     def __init__(self,master):
-       if num_objects >= 1 and num_objects < 4:
+       if config.Num_Objects >= 1 and config.Num_Objects <= 4:
           self.master = master
           self.frame = Frame(self.master)
           self.label = Label(self.frame, text = "Please Enter Four Points for the Object", width = 50)
@@ -162,7 +176,7 @@ class Obj_Points:
           self.Entry7.grid(row = 5, column = 1)
           self.Entry8 = Entry(self.frame)
           self.Entry8.grid(row = 5, column = 2) 
-          if num_objects == 1:
+          if config.Num_Objects == 1:
             self.button = Button(self.frame, text = "Done", command = self.close)
           else:
              self.button = Button(self.frame, text = "Done", command = self.Sec)
@@ -179,8 +193,8 @@ class Obj_Points:
           self.frame.grid()
 
     def close(self):
-
-      if num_objects == 1:
+      config.ObjectPoints = True
+      if config.Num_Objects == 1:
         x1 = float(self.Entry1.get())
         y1 = float(self.Entry2.get())
         x2 = float(self.Entry3.get())
@@ -191,7 +205,7 @@ class Obj_Points:
         y4 = float(self.Entry8.get())
         t = placeBox([x1,y1],[x2,y2],[x3,y3],[x4,y4])
         self.master.destroy()
-      elif num_objects == 2:
+      elif config.Num_Objects == 2:
         x1 = float(self.Entry1.get())
         y1 = float(self.Entry2.get())
         x2 = float(self.Entry3.get())
@@ -211,7 +225,7 @@ class Obj_Points:
         y42 = float(self.En8.get())
         t = placeBox([x12,y12],[x22,y22],[x32,y32],[x42,y42])
         self.master.destroy()
-      elif num_objects == 3:
+      elif config.Num_Objects == 3:
         x1 = float(self.Entry1.get())
         y1 = float(self.Entry2.get())
         x2 = float(self.Entry3.get())
@@ -240,7 +254,7 @@ class Obj_Points:
         y43 = float(self.Ent8.get())
         t = placeBox([x13,y13],[x23,y23],[x33,y33],[x43,y43])
         self.master.destroy()
-      elif num_objects == 4:
+      elif config.Num_Objects == 4:
         x1 = float(self.Entry1.get())
         y1 = float(self.Entry2.get())
         x2 = float(self.Entry3.get())
@@ -278,7 +292,7 @@ class Obj_Points:
         y44 = float(self.E8.get())
         t = placeBox([x14,y14],[x24,y24],[x34,y34],[x44,y44])
         self.master.destroy()
-      else:
+      elif (config.Num_Objects == 0) or (config.Num_Objects >= 5):
         self.master.destroy()
 
     def Sec(self):
@@ -315,12 +329,12 @@ class Obj_Points:
          self.En8 = Entry(self.frame)
          self.En8.grid(row = 5, column = 2)
       
-         if num_objects == 2:
+         if config.Num_Objects == 2:
              self.button = Button(self.frame, text = "Done", command =  self.close)
          else:
               self.button = Button(self.frame, text = "Done", command =  self.third)   
          
-         self.button.grid()
+         self.button.grid(columnspan = 3,sticky = W +E)
          self.frame.grid()
 
     def third(self):
@@ -357,12 +371,12 @@ class Obj_Points:
          self.Ent8 = Entry(self.frame)
          self.Ent8.grid(row = 5, column = 2)
       
-         if num_objects == 3:
+         if config.Num_Objects == 3:
              self.button = Button(self.frame, text = "Done", command =  self.close)
          else:
               self.button = Button(self.frame, text = "Done", command =  self.fourth)   
          
-         self.button.grid()
+         self.button.grid(columnspan = 3,sticky = W +E)
          self.frame.grid()
          
     def fourth(self):
@@ -399,26 +413,39 @@ class Obj_Points:
          self.E8 = Entry(self.frame)
          self.E8.grid(row = 5, column = 2)
          self.button = Button(self.frame, text = "Done", command =  self.close)
-         self.button.grid()
+         self.button.grid(columnspan = 3,sticky = W +E)
          self.frame.grid()
 class settime:
     def __init__(self,master):
         self.master = master
         self.frame = Frame(self.master)
-        self.label = Label(self.frame, text= "Set Simulation Time (In Seconds)", width= 50)
-        self.label.grid()
+        self.label = Label(self.frame, text= "Set Simulation Time (In Seconds)")
+        self.label.grid(row = 1, columnspan = 2)
         self.EntryT = Entry(self.frame)
-        self.EntryT.grid()
+        self.EntryT.grid(row = 2,sticky =W)
         self.but = Button(self.frame, text = "Done ", command = self.sett)
-        self.but.grid()
+        self.but.grid(row = 2, column = 1)
         self.frame.grid()
                           
     def sett(self):
+        config.SimTime = True
         global time
         time = float(self.EntryT.get())
         print time
         self.master.destroy()
-                    
+
+class Error:
+   def __init__(self,master):
+        self.master = master
+        self.frame = Frame(self.master)
+        self.Error = Label(self.frame, text = "Error, No or Only Parital Parameters are Inputted", width = 40)
+        self.Error.grid()
+        self.button = Button(self.frame,text = "OK", width = 40, command = self.close)
+        self.button.grid()
+        self.frame.grid()
+    
+   def close(self):
+        self.master.destroy()   
 
 def main ():
     
@@ -428,11 +455,12 @@ def main ():
     print "About to run window"
     app = wind1(master)
     master.mainloop()
-    #c = placeBall (0.55, 0.8, 0.02).mass (1).on_collision (callMe)
-    #l = placeBox ([0.3, 0.3], [0.3, 0.5], [0.5, 0.5], [0.5, 0.3])
-        #Own code 
-   # l2 = placeBox ([0.55, 0.55], [0.0, 0.0], [0.80, 0.80], [0.8, 0.2])
-    #l3 = placeBox ([0.15, 0.15], [0.25, 0.25], [0.03, 0.03], [0.02, 0.8])
+   
+
+
+
+
+
     b1, b2, b3, b4 = placeBoarders (boarder, wood_light)
     print "before run"
     pge.gravity ()
