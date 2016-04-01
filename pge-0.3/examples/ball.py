@@ -14,7 +14,7 @@ red = pge.rgb (1.0, 0.0, 0.0)
 metal = pge.rgb (0.5, 0.5, 0.5)
 ball_size = 0.04
 boarder = 0.001
-white = pge.rgb (1.0, 1.0, 1.0)
+white = pge.rgb (1.0, 0.0, 1.0)
 gap = 0.01
 
 
@@ -134,10 +134,10 @@ class Place_Ball:
         config.Ball = True
         print config.Ball
         print(self.Entry1.get())
-        firstval = float(self.Entry1.get()) 
-        secval = float(self.Entry2.get())
-        thirdval = float(self.Entry3.get()) 
-        c = placeBall (firstval, secval, thirdval).mass (1).on_collision (callMe)
+        Xval = float(self.Entry1.get()) 
+        Yval = float(self.Entry2.get())
+        Rval = float(self.Entry3.get()) 
+        c = placeBall (Xval, Yval, Rval).mass (1).on_collision (callMe)
         self.master.destroy()
         
 class Obj_Points:
