@@ -206,6 +206,7 @@ class Obj_Points:
         t = placeBox([x1,y1],[x2,y2],[x3,y3],[x4,y4])
         self.master.destroy()
       elif config.Num_Objects == 2:
+        #first object
         x1 = float(self.Entry1.get())
         y1 = float(self.Entry2.get())
         x2 = float(self.Entry3.get())
@@ -215,6 +216,7 @@ class Obj_Points:
         x4 = float(self.Entry7.get())
         y4 = float(self.Entry8.get())
         t = placeBox([x1,y1],[x2,y2],[x3,y3],[x4,y4])
+        #second object
         x12 = float(self.En1.get())
         y12 = float(self.En2.get())
         x22 = float(self.En3.get())
@@ -223,9 +225,10 @@ class Obj_Points:
         y32 = float(self.En6.get())
         x42 = float(self.En7.get())
         y42 = float(self.En8.get())
-        t = placeBox([x12,y12],[x22,y22],[x32,y32],[x42,y42])
+        t2 = placeBox([x12,y12],[x22,y22],[x32,y32],[x42,y42])
         self.master.destroy()
       elif config.Num_Objects == 3:
+        #first object
         x1 = float(self.Entry1.get())
         y1 = float(self.Entry2.get())
         x2 = float(self.Entry3.get())
@@ -235,6 +238,7 @@ class Obj_Points:
         x4 = float(self.Entry7.get())
         y4 = float(self.Entry8.get())
         t = placeBox([x1,y1],[x2,y2],[x3,y3],[x4,y4])
+        #second object
         x12 = float(self.En1.get())
         y12 = float(self.En2.get())
         x22 = float(self.En3.get())
@@ -243,7 +247,8 @@ class Obj_Points:
         y32 = float(self.En6.get())
         x42 = float(self.En7.get())
         y42 = float(self.En8.get())
-        t = placeBox([x12,y12],[x22,y22],[x32,y32],[x42,y42])
+        t2 = placeBox([x12,y12],[x22,y22],[x32,y32],[x42,y42])
+        #third object
         x13 = float(self.Ent1.get())
         y13 = float(self.Ent2.get())
         x23 = float(self.Ent3.get())
@@ -252,9 +257,10 @@ class Obj_Points:
         y33 = float(self.Ent6.get())
         x43 = float(self.Ent7.get())
         y43 = float(self.Ent8.get())
-        t = placeBox([x13,y13],[x23,y23],[x33,y33],[x43,y43])
+        t3 = placeBox([x13,y13],[x23,y23],[x33,y33],[x43,y43])
         self.master.destroy()
       elif config.Num_Objects == 4:
+        #first object
         x1 = float(self.Entry1.get())
         y1 = float(self.Entry2.get())
         x2 = float(self.Entry3.get())
@@ -264,6 +270,7 @@ class Obj_Points:
         x4 = float(self.Entry7.get())
         y4 = float(self.Entry8.get())
         t = placeBox([x1,y1],[x2,y2],[x3,y3],[x4,y4])
+        #second object
         x12 = float(self.En1.get())
         y12 = float(self.En2.get())
         x22 = float(self.En3.get())
@@ -272,7 +279,8 @@ class Obj_Points:
         y32 = float(self.En6.get())
         x42 = float(self.En7.get())
         y42 = float(self.En8.get())
-        t = placeBox([x12,y12],[x22,y22],[x32,y32],[x42,y42])
+        t2 = placeBox([x12,y12],[x22,y22],[x32,y32],[x42,y42])
+        #third object
         x13 = float(self.Ent1.get())
         y13 = float(self.Ent2.get())
         x23 = float(self.Ent3.get())
@@ -281,7 +289,8 @@ class Obj_Points:
         y33 = float(self.Ent6.get())
         x43 = float(self.Ent7.get())
         y43 = float(self.Ent8.get())
-        t = placeBox([x13,y13],[x23,y23],[x33,y33],[x43,y43])
+        t3 = placeBox([x13,y13],[x23,y23],[x33,y33],[x43,y43])
+        #fourth object
         x14 = float(self.E1.get())
         y14 = float(self.E2.get())
         x24 = float(self.E3.get())
@@ -290,7 +299,7 @@ class Obj_Points:
         y34 = float(self.E6.get())
         x44 = float(self.E7.get())
         y44 = float(self.E8.get())
-        t = placeBox([x14,y14],[x24,y24],[x34,y34],[x44,y44])
+        t4 = placeBox([x14,y14],[x24,y24],[x34,y34],[x44,y44])
         self.master.destroy()
       elif (config.Num_Objects == 0) or (config.Num_Objects >= 5):
         self.master.destroy()
