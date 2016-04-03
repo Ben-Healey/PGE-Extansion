@@ -438,9 +438,8 @@ class settime:
                           
     def sett(self):
         config.SimTime = True
-        global time
-        time = float(self.EntryT.get())
-        print time
+        config.Time = float(self.EntryT.get())
+        print config.Time
         self.master.destroy()
 
 class Error:
@@ -474,7 +473,7 @@ def main ():
     print "before run"
     pge.gravity ()
     pge.dump_world ()
-    pge.run (time)
+    pge.run (config.Time)
     pge.finish ()
     
 print "before main()"
