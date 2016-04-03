@@ -112,7 +112,7 @@ class Place_Ball:
      def __init__(self,master):
         self.master = master
         self.frame = Frame(self.master)
-        self.label = Label(self.frame, text = "Please Enter the X, Y and R:", width = 50)
+        self.label = Label(self.frame, text = "Please Enter the X, Y and R: (0-1)", width = 50)
         self.label.grid(columnspan = 2, sticky = W+E)
         self.label2 = Label(self.frame, text ="X:")
         self.Entry1 = Entry(self.frame)
@@ -146,7 +146,7 @@ class Obj_Points:
        if config.Num_Objects >= 1 and config.Num_Objects <= 4:
           self.master = master
           self.frame = Frame(self.master)
-          self.label = Label(self.frame, text = "Please Enter Four Points for the Object", width = 50)
+          self.label = Label(self.frame, text = "Please Enter Four Points for the Object (0-1)", width = 50)
           self.label.grid(columnspan = 3)
           #Start of first point
           self.label2 = Label(self.frame, text = "First point(X,Y) : ")
@@ -307,7 +307,7 @@ class Obj_Points:
     def Sec(self):
          self.frame.grid_forget()
          self.frame = Frame(self.master)
-         self.label = Label(self.frame, text = "Please Enter The Second Objects Four Points", width = 50)
+         self.label = Label(self.frame, text = "Please Enter The Second Objects Four Points (0-1)", width = 50)
          self.label.grid(columnspan = 3)
          #Start of second point
          self.label2 = Label(self.frame, text = "First Point (X,Y) : ")
@@ -349,7 +349,7 @@ class Obj_Points:
     def third(self):
          self.frame.grid_forget()
          self.frame = Frame(self.master)
-         self.label = Label(self.frame, text = "Please Enter The Third Objects Four Points", width = 50)
+         self.label = Label(self.frame, text = "Please Enter The Third Objects Four Points(0-1)", width = 50)
          self.label.grid(columnspan = 3)
          #Start of second point
          self.label2 = Label(self.frame, text = "First Point (X,Y) : ")
@@ -391,7 +391,7 @@ class Obj_Points:
     def fourth(self):
          self.frame.grid_forget()
          self.frame = Frame(self.master)
-         self.label = Label(self.frame, text = "Please Enter The Fourth Objects Four Points", width = 50)
+         self.label = Label(self.frame, text = "Please Enter The Fourth Objects Four Points(0-1)", width = 50)
          self.label.grid(columnspan = 3)
          #Start of second point
          self.label2 = Label(self.frame, text = "First Point (X,Y) : ")
